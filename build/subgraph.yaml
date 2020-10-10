@@ -1,13 +1,13 @@
 specVersion: 0.0.2
 description: Don't Buy MEME
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: Sven
     network: mainnet
     source:
-      address: '0x7e7b4509e4ee79d27ddf969deed261d4754ec395'
+      address: "0x7e7b4509e4ee79d27ddf969deed261d4754ec395"
       abi: Sven
       startBlock: 10887784
     mapping:
@@ -21,7 +21,7 @@ dataSources:
         - Card
       abis:
         - name: Sven
-          file: ./abis/Sven.json
+          file: Sven/abis/Sven.json
       eventHandlers:
         - event: Staked(indexed address,uint256)
           handler: handleStaked
@@ -29,13 +29,12 @@ dataSources:
           handler: handleWithdrawn
         - event: CardAdded(uint256,uint256)
           handler: handleCardAdded
-      file: ./src/mapping.ts
-
+      file: Sven/Sven.wasm
   - kind: ethereum/contract
     name: MemeLtd
     network: mainnet
     source:
-      address: '0xe4605d46fd0b3f8329d936a8b258d69276cba264'
+      address: "0xe4605d46fd0b3f8329d936a8b258d69276cba264"
       abi: MemeLtd
       startBlock: 10734502
     mapping:
@@ -46,8 +45,8 @@ dataSources:
         - NFT
       abis:
         - name: MemeLtd
-          file: ./abis/MemeLtd.json
+          file: MemeLtd/abis/MemeLtd.json
       eventHandlers:
         - event: TransferSingle(indexed address,indexed address,indexed address,uint256,uint256)
           handler: handleTransferSingle
-      file: ./src/mapping.ts
+      file: Sven/Sven.wasm
