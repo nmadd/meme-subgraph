@@ -5,7 +5,7 @@ import { Address, Bytes, BigInt, log } from '@graphprotocol/graph-ts'
 
 export function handleCardAdded(event: CardAdded): void {
   let id = event.params.card
-  let card = new Card(id.toHex())
+  let card = new Card(id.toString())
   card.pineappleCost = event.params.points
   card.pool = event.transaction.to as Bytes
   card.save()
