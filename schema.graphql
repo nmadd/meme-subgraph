@@ -23,8 +23,8 @@ type Stake @entity {
 type NFT @entity { 
     id: ID!
     card: Card!
-    mintedBy: User!
-    mintedTimestamp: BigInt!
-    transactionHash: String!
+    mintedBy: User
+    mintedTimestamp: BigInt
+    transactionHash: String
   } 
 

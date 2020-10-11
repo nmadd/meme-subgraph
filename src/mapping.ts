@@ -19,7 +19,7 @@ export function handleStaked(event: Staked): void {
   stake.amount = event.params.amount
   stake.timestamp = event.block.timestamp
   stake.pool = event.transaction.to as Bytes
-  stake.transactionHash = event.transaction.hash.toString()
+  stake.transactionHash = event.transaction.hash.toHex()
   stake.save()
 }
 
@@ -41,10 +41,11 @@ export function handleTransferSingle(event: TransferSingle): void {
   let nft = new NFT(id)
   let card_id = event.params._id
   let card = Card.load(card_id.toString())
-  nft.mintedBy = event.params._to.toHex()
+  let user = User.load(event.params._to.toHex())
+  nft.mintedBy = user.id
   nft.mintedTimestamp = event.block.timestamp
-  nft.card = card_id.toString()
-  nft.transactionHash = event.transaction.hash.toString()
+  nft.card = card.id
+  nft.transactionHash = event.transaction.hash.toHex()
   nft.save()
 }
 
