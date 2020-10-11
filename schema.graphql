@@ -17,6 +17,7 @@ type Stake @entity {
     user: User!
     pool: Bytes!
     timestamp: BigInt!
+    transactionHash: String!
   }
 
 type NFT @entity { 
@@ -24,5 +25,6 @@ type NFT @entity {
     card: Card!
     mintedBy: User!
     mintedTimestamp: BigInt!
+    transactionHash: String!
   } 
 
