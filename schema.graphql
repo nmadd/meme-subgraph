@@ -1,14 +1,22 @@
+
+
+type User @entity {
+    id: ID!
+    address: Bytes!
+  }
+
+type Card @entity {
+    id:ID! 
+    pool: Bytes!
+    pineappleCost: BigInt!
+  } 
+
 type Stake @entity {
     id: ID!
     amount: BigInt!
     user: User!
     pool: Bytes!
     timestamp: BigInt!
-  }
-
-type User @entity {
-    id: ID!
-    address: Bytes!
   }
 
 type NFT @entity { 
@@ -18,8 +26,3 @@ type NFT @entity {
     mintedTimestamp: BigInt!
   } 
 
-type Card @entity {
-    id:ID! 
-    pool: Bytes!
-    pineappleCost: BigInt!
-  } 
