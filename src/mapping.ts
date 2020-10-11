@@ -19,6 +19,7 @@ export function handleStaked(event: Staked): void {
   stake.amount = event.params.amount
   stake.timestamp = event.block.timestamp
   stake.pool = event.transaction.to as Bytes
+  stake.transactionHash = event.transaction.hash.toString()
   stake.save()
 }
 
@@ -30,6 +31,7 @@ export function handleWithdrawn(event: Withdrawn): void {
   stake.amount = -(event.params.amount as BigInt)
   stake.timestamp = event.block.timestamp
   stake.pool = event.transaction.to as Bytes
+  stake.transactionHash = event.transaction.hash.toString()
   stake.save()
 }
 
@@ -42,6 +44,7 @@ export function handleTransferSingle(event: TransferSingle): void {
   nft.mintedBy = event.params._to.toHex()
   nft.mintedTimestamp = event.block.timestamp
   nft.card = card_id.toString()
+  nft.transactionHash = event.transaction.hash.toString()
   nft.save()
 }
 
